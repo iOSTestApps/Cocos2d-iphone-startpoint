@@ -81,6 +81,20 @@
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
     
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeAlert |
+      UIRemoteNotificationTypeBadge |
+      UIRemoteNotificationTypeSound)];
+
+    // check if the app has been launched due to an incoming push notification
+    NSDictionary *remoteNotificationDict = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+
+    if (remoteNotificationDict) {
+        if (![PropellerSDK handleRemoteNotification:remoteNotificationDict newLaunch:YES]) {
+            // this is not a Grantoo notification, handle as necessary
+        }
+    }
+
     [PropellerSDK useSandbox];
     [PropellerSDK setRootViewController:navController_];
     [PropellerSDK initialize:@"51145f0fdce0751836000028" gameSecret:@"841f983c-e97a-190b-62bf-ccc2ec29cde3"];
@@ -90,6 +104,30 @@
 	[director_ pushScene: [MainMenuLayer scene]];
 	
 	return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
+{
+    NSString *deviceToken = [[devToken description] stringByTrimmingCharactersInSet:
+                             [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    [PropellerSDK setNotificationToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    NSString *str = [NSString stringWithFormat:@"Error %@", err];
+    NSLog(@"%@", str);
+
+    [PropellerSDK setNotificationToken:nil];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    if (![PropellerSDK handleRemoteNotification:userInfo newLaunch:NO]) {
+        // this is not a Grantoo notification, handle as necessary
+    }
 }
 
 // Supported orientations: Landscape. Customize it for your own needs
