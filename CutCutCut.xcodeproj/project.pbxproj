@@ -232,6 +232,11 @@
 		25890196156E33BA00E5FFB7 /* toss_bomb.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2589018D156E33BA00E5FFB7 /* toss_bomb.caf */; };
 		25890197156E33BA00E5FFB7 /* toss_consecutive.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2589018E156E33BA00E5FFB7 /* toss_consecutive.caf */; };
 		25890198156E33BA00E5FFB7 /* toss_simultaneous.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2589018F156E33BA00E5FFB7 /* toss_simultaneous.caf */; };
+		7C7D8A0B17C68AAC00002562 /* libPropellerSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D8A0917C68AAC00002562 /* libPropellerSDK.a */; };
+		7C7D8A0D17C68B1500002562 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D8A0C17C68B1500002562 /* FacebookSDK.framework */; };
+		7C7D8A0F17C68B4200002562 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D8A0E17C68B4200002562 /* AdSupport.framework */; };
+		7C7D8A1117C68B4A00002562 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7D8A1017C68B4A00002562 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7C7D8A1417C6924E00002562 /* GamePayload.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7C7D8A1317C6924E00002562 /* GamePayload.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -657,6 +662,13 @@
 		2589018D156E33BA00E5FFB7 /* toss_bomb.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = toss_bomb.caf; sourceTree = "<group>"; };
 		2589018E156E33BA00E5FFB7 /* toss_consecutive.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = toss_consecutive.caf; sourceTree = "<group>"; };
 		2589018F156E33BA00E5FFB7 /* toss_simultaneous.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = toss_simultaneous.caf; sourceTree = "<group>"; };
+		7C7D8A0917C68AAC00002562 /* libPropellerSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPropellerSDK.a; sourceTree = "<group>"; };
+		7C7D8A0A17C68AAC00002562 /* PropellerSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropellerSDK.h; sourceTree = "<group>"; };
+		7C7D8A0C17C68B1500002562 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		7C7D8A0E17C68B4200002562 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7C7D8A1017C68B4A00002562 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		7C7D8A1217C6924E00002562 /* GamePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePayload.h; sourceTree = "<group>"; };
+		7C7D8A1317C6924E00002562 /* GamePayload.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamePayload.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -664,6 +676,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7D8A1117C68B4A00002562 /* Social.framework in Frameworks */,
+				7C7D8A0F17C68B4200002562 /* AdSupport.framework in Frameworks */,
+				7C7D8A0D17C68B1500002562 /* FacebookSDK.framework in Frameworks */,
 				2543C43B1567F71600CFC0A9 /* QuartzCore.framework in Frameworks */,
 				2543C43D1567F71600CFC0A9 /* OpenGLES.framework in Frameworks */,
 				2543C43F1567F71600CFC0A9 /* OpenAL.framework in Frameworks */,
@@ -673,6 +688,7 @@
 				2543C4471567F71600CFC0A9 /* Foundation.framework in Frameworks */,
 				2543C4491567F71600CFC0A9 /* CoreGraphics.framework in Frameworks */,
 				2543C44B1567F71600CFC0A9 /* GameKit.framework in Frameworks */,
+				7C7D8A0B17C68AAC00002562 /* libPropellerSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +766,10 @@
 		2543C42B1567F71600CFC0A9 = {
 			isa = PBXGroup;
 			children = (
+				7C7D8A1017C68B4A00002562 /* Social.framework */,
+				7C7D8A0E17C68B4200002562 /* AdSupport.framework */,
+				7C7D8A0C17C68B1500002562 /* FacebookSDK.framework */,
+				7C7D8A0817C68AAC00002562 /* Propeller_SDK */,
 				2543C44C1567F71600CFC0A9 /* CutCutCut */,
 				2543C4391567F71600CFC0A9 /* Frameworks */,
 				2543C4371567F71600CFC0A9 /* Products */,
@@ -792,6 +812,8 @@
 				2543C6501567F71C00CFC0A9 /* HelloWorldLayer.h */,
 				2543C6511567F71C00CFC0A9 /* HelloWorldLayer.mm */,
 				2543C6531567F71C00CFC0A9 /* GLES-Render.h */,
+				7C7D8A1217C6924E00002562 /* GamePayload.h */,
+				7C7D8A1317C6924E00002562 /* GamePayload.mm */,
 				2543C6541567F71C00CFC0A9 /* GLES-Render.mm */,
 				2501D4F51568C93900D5C72D /* PolygonSprite.h */,
 				2501D4F61568C93900D5C72D /* PolygonSprite.mm */,
@@ -1355,6 +1377,15 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		7C7D8A0817C68AAC00002562 /* Propeller_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				7C7D8A0917C68AAC00002562 /* libPropellerSDK.a */,
+				7C7D8A0A17C68AAC00002562 /* PropellerSDK.h */,
+			);
+			path = Propeller_SDK;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1631,6 +1662,7 @@
 				2533631A156A34940054359B /* Strawberry.mm in Sources */,
 				2533631F156A9C8C0054359B /* CCBlade.mm in Sources */,
 				0BAD898816C423AF00F7137D /* MainMenuLayer.mm in Sources */,
+				7C7D8A1417C6924E00002562 /* GamePayload.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1682,11 +1714,20 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CutCutCut/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"CutCutCut/libs/kazmath/include\"";
 				INFOPLIST_FILE = CutCutCut/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/Propeller_SDK\"",
+					"\"$(SRCROOT)/Propeller_SDK\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1703,10 +1744,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CutCutCut/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"CutCutCut/libs/kazmath/include\"";
 				INFOPLIST_FILE = CutCutCut/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Downloads/Propeller_SDK\"",
+					"\"$(SRCROOT)/Propeller_SDK\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

@@ -884,6 +884,19 @@ int comparator(const void *a, const void *b) {
 -(void)endGame
 {
     [self unscheduleUpdate];
+    
+    GamePayload *payLoad = [GamePayload instance];
+
+    // validate the payload state
+    if (payLoad && payLoad.activeFlag) {
+        // update the game payload
+        payLoad.score = _cuts;
+        payLoad.completeFlag = true;
+        
+        // store the payload data to persistent storage
+        [payLoad store];
+    }
+    
     CCMenuItemLabel *label = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"BACK"fontName:@"Helvetica Neue"fontSize:50] target:self selector:@selector(restart)];
     CCMenu *menu = [CCMenu menuWithItems:label, nil];
     CGSize screen = [[CCDirector sharedDirector] winSize];

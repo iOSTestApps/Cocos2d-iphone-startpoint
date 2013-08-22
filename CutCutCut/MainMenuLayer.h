@@ -8,9 +8,12 @@
 
 #import "cocos2d.h"
 
-@interface MainMenuLayer : CCLayer
+#import "PropellerSDK.h"
+#import "GamePayload.h"
+
+@interface MainMenuLayer : CCLayer <PropellerSDKDelegate>
 {
-    
+    CCLabelTTF *_countsLabel;
 }
 // returns a CCScene that contains the MainMenuLayer as the only child
 +(CCScene *) scene;

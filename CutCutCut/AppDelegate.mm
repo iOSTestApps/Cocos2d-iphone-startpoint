@@ -8,6 +8,8 @@
 
 #import "cocos2d.h"
 
+#import "PropellerSDK.h"
+
 #import "AppDelegate.h"
 #import "MainMenuLayer.h"
 
@@ -78,6 +80,11 @@
 	
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
+    
+    [PropellerSDK useSandbox];
+    [PropellerSDK setRootViewController:navController_];
+    [PropellerSDK initialize:@"51145f0fdce0751836000028" gameSecret:@"841f983c-e97a-190b-62bf-ccc2ec29cde3"];
+    [[PropellerSDK instance] setOrientation:kPropelSDKLandscape];
 	
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	[director_ pushScene: [MainMenuLayer scene]];
