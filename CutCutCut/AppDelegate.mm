@@ -80,7 +80,7 @@
 	
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
-    
+
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeAlert |
       UIRemoteNotificationTypeBadge |
@@ -95,14 +95,42 @@
         }
     }
 
+    NSArray *capabilities = [NSArray arrayWithObjects:
+                             @"login",
+                             @"invite",
+                             @"share",
+                             nil];
+
+    NSDictionary *provider = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"<social_provider>", @"provider",
+                              capabilities, @"cap",
+                              nil];
+
+    NSArray *providers = [NSArray arrayWithObject:provider];
+
+    NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys:
+                          providers, @"social",
+                          nil];
+
+    NSError *error;
+
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json
+                                                       options:nil error:&error];
+
+    NSString *auxData = nil;
+
+    if (jsonData != nil) {
+        auxData = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+
     [PropellerSDK useSandbox];
     [PropellerSDK setRootViewController:navController_];
-    [PropellerSDK initialize:@"51145f0fdce0751836000028" gameSecret:@"841f983c-e97a-190b-62bf-ccc2ec29cde3"];
+    [PropellerSDK initialize:@"51145f0fdce0751836000028" gameSecret:@"841f983c-e97a-190b-62bf-ccc2ec29cde3" auxData:auxData];
     [[PropellerSDK instance] setOrientation:kPropelSDKLandscape];
-	
+
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	[director_ pushScene: [MainMenuLayer scene]];
-	
+
 	return YES;
 }
 

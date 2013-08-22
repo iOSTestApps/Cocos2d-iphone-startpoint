@@ -138,6 +138,63 @@
     // (alert box will have been displayed)
 }
 
+- (BOOL)sdkSocialLogin:(BOOL)allowCache
+{
+    NSString *result = nil;
+    BOOL succeeded = false;
+
+    // handle social login
+
+    if (succeeded) {
+        NSString *provider = @"";
+        NSString *email = @"";
+        NSString *id = @"";
+        NSString *nickname = @"";
+        NSString *token = @"";
+
+        // retrieve social login data
+
+        NSDictionary *json = [NSDictionary dictionaryWithObjectsAndKeys:
+                              provider, @"provider",
+                              email, @"email",
+                              id, @"id",
+                              nickname, @"nickname",
+                              token, @"token",
+                              nil];
+
+        NSError *error;
+
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json
+                                                           options:nil error:&error];
+
+        if (jsonData != nil) {
+            result = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        }
+    }
+
+    [[PropellerSDK instance] sdkSocialLoginCompleted:result];
+
+    return YES;
+}
+
+- (BOOL)sdkSocialInvite:(NSString*)subject longMessage:(NSString *)longMessage shortMessage:(NSString *)shortMessage linkUrl:(NSString *)linkUrl
+{
+    // handle social invite
+
+    [[PropellerSDK instance] sdkSocialInviteCompleted];
+
+    return YES;
+}
+
+- (BOOL)sdkSocialShare:(NSString*)subject longMessage:(NSString *)longMessage shortMessage:(NSString *)shortMessage linkUrl:(NSString *)linkUrl
+{
+    // handle social share
+
+    [[PropellerSDK instance] sdkSocialShareCompleted];
+
+    return YES;
+}
+
 - (void)launchPropeller
 {
     [[PropellerSDK instance] launch:self];
