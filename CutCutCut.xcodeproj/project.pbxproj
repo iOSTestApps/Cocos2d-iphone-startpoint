@@ -1693,6 +1693,7 @@
 				GCC_PREFIX_HEADER = CutCutCut/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"CutCutCut/libs/kazmath/include\"";
 				INFOPLIST_FILE = CutCutCut/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1715,6 +1716,7 @@
 				GCC_PREFIX_HEADER = CutCutCut/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"CutCutCut/libs/kazmath/include\"";
 				INFOPLIST_FILE = CutCutCut/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
